@@ -1,22 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>SignUp</title>
-        <style>
-            
 
-
-body {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  
-  background-color: var(--dark-color);
-  overflow: hidden;
-  
-}
-
-html {
+<head>
+  <title>SignUp</title>
+  <style>
+    html {
   --s: 50px;
   --c: #191b22;
   --_s: calc(2*var(--s)) calc(2*var(--s));
@@ -31,21 +19,20 @@ html {
     radial-gradient(var(--_c)) 0 calc(var(--s)/2)/var(--s) var(--s) var(--c);
   background-attachment: fixed;
 }
-
              .login-container {
                         width: 300px;
+                        margin: 0 auto;
                         padding: 30px;
                         background-color: #ffffff;
                         border-radius: 5px;
                         box-shadow: 0 0 10px rgba(17, 22, 167, 0.334);
-                        margin-top: 180px;
-                        margin-right: 300px;
-                      }
+                        margin-top: 25px; 
+                }
 
                 /* Add this to increase the size of the textboxes */
                 .login-container input[type="text"], .login-container input[type="password"] {
                         width: 80%; /* Adjust as needed */
-                        padding: 10px; /* Adjust as needed */
+                        padding: 10px /* Adjust as needed */
                 }
 
                 .gradient-text {
@@ -82,54 +69,57 @@ html {
             .submit:active {
                 background-color: #06b;
                 }
-                
-        </style>
-    </head>
-    <body>
-        
-            <header>
-               <h1 class="gradient-text">Emu-tional</h1>
-            </header>
-               
-            
-    <div class="login-container" >
-      
-      <form action="/signup" method="post">
-      
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" required><br><br>
-        
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" minlength="6" required><br><br>
-          
-            <label for="confirm-password">Confirm Password:</label>
-            <input type="password" id="confirm_password" minlength="6" name="signpass" required><br><br>
-          <script>
-            var password = document.getElementById("password")
-            , confirm_password = document.getElementById("confirm_password");
+  </style>
+</head>
 
-            function validatePassword(){
-            if(password.value != confirm_password.value) {
+<body>
+
+  <div id="emu">
+    <h1 class="gradient-text">Emu-tional</h1>
+  </div>
+
+
+
+
+  <div class="login-container">
+
+    <form action="/signup" method="post">
+
+      <label for="username">Username:</label><br>
+      <input type="text" id="username" name="username" required><br><br>
+
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" name="password" minlength="6" required><br><br>
+
+      <label for="confirm-password">Confirm Password:</label>
+      <input type="password" id="confirm_password" minlength="6" name="signpass" required><br><br>
+      <script>
+        var password = document.getElementById("password")
+          , confirm_password = document.getElementById("confirm_password");
+
+        function validatePassword() {
+          if (password.value != confirm_password.value) {
             confirm_password.setCustomValidity("Passwords Don't Match");
-            } else {
+          } else {
             confirm_password.setCustomValidity('');
-            }
+          }
         }
 
-            password.onchange = validatePassword;
-            confirm_password.onkeyup = validatePassword;
-          </script>
-        <input type="submit" class="submit" value="Sign-Up"></input>
-        {% with messages = get_flashed_messages() %}
-          {% if messages %}
-            {% for message in messages %}
-              <p>{{message}}</p>
-            {% endfor %}
-          {% endif %}
-        {% endwith %}
-        <p>Already have an account? <a href="login">Login</a></p>
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;
+      </script>
+      <input type="submit" class="submit" value="Sign-Up"></input>
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for message in messages %}
+      <p>{{message}}</p>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+      <p>Already have an account? <a href="login">Login</a></p>
 
-      </form>
-    </div>
-  </body>
+    </form>
+  </div>
+</body>
+
 </html>
