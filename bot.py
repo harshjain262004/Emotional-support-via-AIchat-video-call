@@ -1,7 +1,7 @@
 import google.generativeai as genai
 from sql import *
 
-genai.configure(api_key="AIzaSyCsrWSfXdq_2M5EPRxHXfTZIgtkSZ1QRx8")
+genai.configure(api_key="AIzaSyAaly5AXI9LkAiZqGQYmSDCWIK23EW5kDE")
 
 generation_config = {
   "temperature": 0.9,
@@ -70,10 +70,6 @@ def get_Chat_response(text,userid):
     define_keyword(text,userid)
     convo.send_message("Respond like a therapist under 50 words whose patient said:" + text)
     return str(convo.last.text)
-
-
-# convo.send_message("given list="  + str(list) + "define the statement \"i cant find a job\" into the list category, return 1 word only")
-# print(convo.last.text)
 
 def define_keyword(text,userid):
     convo.send_message("Given category=" + str(stress_forms) + "define the statement " + text + " using category in the list and return single word from the list")
