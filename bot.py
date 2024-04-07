@@ -1,7 +1,7 @@
 import google.generativeai as genai
 from sql import *
 
-genai.configure(api_key="AIzaSyAaly5AXI9LkAiZqGQYmSDCWIK23EW5kDE")
+genai.configure(api_key=" Your API key for GEMINI 1.0 pro ")
 
 generation_config = {
   "temperature": 0.9,
@@ -78,6 +78,8 @@ def define_keyword(text,userid):
 def get_1st(userid):
     keyword = get_keyword(userid)
     if keyword == "null":
-        return "Hey there! What is bothering you today!"
-    convo.send_message("Given the context of: " + str(keyword) + "return a calming response under 20 words like a therapist")
-    return str(convo.last.text)
+      return "Hey there! What is bothering you today!"
+    else:
+      convo.send_message("Given the context of: " + str(keyword) + "return a calming response under 20 words like a therapist")
+      return str(convo.last.text)
+
